@@ -1,0 +1,14 @@
+{
+  "setup": {
+    "prefix": ["/**", "comment"],
+    "body": [
+      "/**",
+      "* @brief:", 
+      "*",
+      "* @input: ",
+      "* @return: ",
+      "*/"
+    ],
+    "description": "My standard setup Vue3 + TS"
+  }
+}

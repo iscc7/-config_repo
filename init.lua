@@ -1,19 +1,32 @@
 return {
   colorscheme = "tokyonight",
+  lsp = {
+    formatting = {
+      format_on_save = false,
+    },
+  },
+  updater = {
+    channel = "stable",
+    remote = "origin",
+    version = "latest",
+    branch = "nightly",
+    commit = nil,
+    pin_plugins = nil,
+    skip_prompts = false,
+    show_changelog = true,
+    auto_quit = false,
+    -- remotes = { -- easily add new remotes to track
+    --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
+    --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
+    --   ["remote3"] = "github_user", -- GitHub user assumes user/AstroNvim.git
+    -- },
+  },
   plugins = {
     {
       -- colortheme
       {
         "folke/tokyonight.nvim",
       },
-      {
-        "simrat39/symbols-outline.nvim",
-        config = function()
-          require("symbols-outline").setup()
-        end,
-        event = "VeryLazy",
-      },
-      -- debuger adapter
       {
         "mfussenegger/nvim-dap",
         enabled = true,
@@ -65,6 +78,11 @@ return {
         lazy = true,
         build = "cd app && npm install && git reset --hard",
         event = "VeryLazy",
+        config = function()
+          -- preview key mapping
+          local map = vim.api.nvim_set_keymap
+          map("n", "<leader>m", ":MarkdownPreviewToggle<CR>", { desc = "Markdown Preview" })
+        end
       },
       -- code runner
       {
@@ -75,7 +93,8 @@ return {
             -- put here the commands by filetype
             filetype = {
               python = "python -u",
-            },
+              rust = "cargo run",
+            }
           })
           -- code runner key mapping
           local map = vim.api.nvim_set_keymap

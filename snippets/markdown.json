@@ -1,0 +1,12 @@
+
+{
+  "setup": {
+    "prefix": ["color word","color"],
+    "body": [
+      "<span style=\"color:red\">",
+      "text",
+      "</span>"
+    ],
+    "description": "My function comment for python"
+  }
+}

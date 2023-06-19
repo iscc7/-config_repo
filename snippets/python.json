@@ -2,11 +2,13 @@
   "setup": {
     "prefix": ["/**", "comment"],
     "body": [
-      "# @brief:", 
-      "#",
-      "# @input: ",
-      "# @return: "
+      "\"\"\"",
+      "@brief:", 
+      "",
+      "@input:",
+      "@return:",
+      "\"\"\""
     ],
-    "description": "My standard setup Vue3 + TS"
+    "description": "My function comment for python"
   }
 }
